@@ -32,6 +32,7 @@ public class record extends AppCompatActivity {
     List<String> sdate = new ArrayList<>();
     List<String> stime = new ArrayList<>();
     List<String> sstart = new ArrayList<>();
+    List<String> scode = new ArrayList<>();
     List<String> send = new ArrayList<>();
     List<String> swheel = new ArrayList<>();
     List<String> scrutch = new ArrayList<>();
@@ -39,7 +40,7 @@ public class record extends AppCompatActivity {
     List<String> shelp = new ArrayList<>();
     List<String> snotice = new ArrayList<>();
     List<String> sseat = new ArrayList<>();
-    List<String> showRecord = new ArrayList<>();
+    List<String> show = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,29 +59,30 @@ public class record extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView arg0, View view, int arg2, long arg3) {
                 check_index = arg2;
-                show_tv.setTextSize(22);
+                show_tv.setTextSize(16);
                 show_tv.setText("日期 : " + sdate.get(check_index) + "\n"+
                         "時間 :" + stime.get(check_index) + "\n" +
                         "起始站 : " + sstart.get(check_index)+ "\n"+
                         "終點站 : " + send.get(check_index)+ "\n"+
-                        "申請服務 : \n" );
+                        "搭乘車次 : " + scode.get(check_index)+ "\n"+
+                        "申請服務 : \n");
                 if(swheel.get(check_index).equals("1")){
-                    show_tv.append("輪椅服務\n");
+                    show_tv.append("\t\t\t\t輪椅服務\n");
                 }
                 if(scrutch.get(check_index).equals("1")){
-                    show_tv.append("拐杖服務\n");
+                    show_tv.append("\t\t\t\t拐杖服務\n");
                 }
                 if(sboard.get(check_index).equals("1")){
-                    show_tv.append("棧板服務\n");
+                    show_tv.append("\t\t\t\t棧板服務\n");
                 }
                 if(shelp.get(check_index).equals("1")){
-                    show_tv.append("乘車幫助\n");
+                    show_tv.append("\t\t\t\t乘車幫助\n");
                 }
                 if(snotice.get(check_index).equals("1")){
-                    show_tv.append("下車提醒\n");
+                    show_tv.append("\t\t\t\t下車提醒\n");
                 }
                 if(sseat.get(check_index).equals("1")){
-                    show_tv.append("博愛座位置\n");
+                    show_tv.append("\t\t\t\t博愛座位置\n");
                 }
             }
         });
@@ -126,6 +128,7 @@ public class record extends AppCompatActivity {
                     sNo.add(record.getString("num"));
                     sdate.add(record.getString("date"));
                     stime.add(record.getString("time"));
+                    scode.add(record.getString("train_code"));
                     sstart.add(record.getString("start"));
                     send.add(record.getString("end"));
                     swheel.add(record.getString("wheel"));
@@ -134,10 +137,12 @@ public class record extends AppCompatActivity {
                     shelp.add(record.getString("travelhelp"));
                     snotice.add(record.getString("notice"));
                     sseat.add(record.getString("seat"));
-                    showRecord.add("編號 : " + sNo.get(i) +"\t\t日期 : " + sdate.get(i) + "\t\t時間 : " + stime.get(i));
                 }
             }
-            adapter = new ArrayAdapter(record.this, android.R.layout.simple_list_item_1,showRecord);
+            for(int i = 0;i < sNo.size();i++){
+                show.add("編號 : " + sNo.get(i) + "\t\t\t\t日期 : " + sdate.get(i) + "\t\t\t\t時間 : " + stime.get(i));
+            }
+            adapter = new ArrayAdapter(record.this, android.R.layout.simple_list_item_1,show);
             record_list.setAdapter(adapter);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -163,6 +168,7 @@ public class record extends AppCompatActivity {
                 sNo.remove(check_index);
                 sdate.remove(check_index);
                 stime.remove(check_index);
+                scode.remove(check_index);
                 sstart.remove(check_index);
                 send.remove(check_index);
                 swheel.remove(check_index);
@@ -171,7 +177,7 @@ public class record extends AppCompatActivity {
                 shelp.remove(check_index);
                 snotice.remove(check_index);
                 sseat.remove(check_index);
-                showRecord.remove(check_index);
+                show.remove(check_index);
                 adapter.notifyDataSetChanged();
                 show_tv.setText("已刪除!");
             } else {
