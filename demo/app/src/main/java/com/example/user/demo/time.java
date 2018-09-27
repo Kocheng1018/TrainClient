@@ -85,7 +85,7 @@ public class time extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         monthOfYear = monthOfYear+1;
-                        date.setText(year +"-"+monthOfYear+"-"+ dayOfMonth);
+                        date.setText(year +"-"+format(monthOfYear)+"-"+ format(dayOfMonth));
                     }
                 }, Year, Month, Day);
                 datePickerDialog.show();
