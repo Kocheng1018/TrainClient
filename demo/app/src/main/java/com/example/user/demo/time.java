@@ -85,7 +85,7 @@ public class time extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         monthOfYear = monthOfYear+1;
-                        date.setText(year +"-"+monthOfYear+"-"+ dayOfMonth);
+                        date.setText(year +"-"+format(monthOfYear)+"-"+ format(dayOfMonth));
                     }
                 }, Year, Month, Day);
                 datePickerDialog.show();
@@ -115,8 +115,8 @@ public class time extends AppCompatActivity {
                     tosat.show();
                 }else {
                     SharedPreferences Ttime = getSharedPreferences("time", MODE_PRIVATE);
-                    Ttime.edit().putString("start_select",String.valueOf(start.getSelectedItemPosition())) .commit();
-                    Ttime.edit().putString("end_select",String.valueOf(end.getSelectedItemPosition())) .commit();
+                    Ttime.edit().putString("start_select",start.getSelectedItem().toString()) .commit();
+                    Ttime.edit().putString("end_select",end.getSelectedItem().toString()) .commit();
                     Ttime.edit().putString("bk1",String.valueOf(block1.getSelectedItemPosition())) .commit();
                     Ttime.edit().putString("bk2",String.valueOf(block2.getSelectedItemPosition())) .commit();
                     getTcode(start.getSelectedItem().toString());
@@ -133,7 +133,14 @@ public class time extends AppCompatActivity {
                 int pos = block1.getSelectedItemPosition();
                 ArrayAdapter location =  change(pos);
                 start.setAdapter(location);
-                start.setSelection(Integer.valueOf(start_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(start_select)){
+                        start.setSelection(i);
+                        break;
+                    } else{
+                        start.setSelection(0);
+                    }
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -146,7 +153,14 @@ public class time extends AppCompatActivity {
                 int pos = block2.getSelectedItemPosition();
                 ArrayAdapter location =  change(pos);
                 end.setAdapter(location);
-                end.setSelection(Integer.valueOf(end_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(end_select)){
+                        end.setSelection(i);
+                        break;
+                    }else{
+                        end.setSelection(0);
+                    }
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

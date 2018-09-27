@@ -69,6 +69,7 @@ public class service_trainNo extends AppCompatActivity {
                                     Intent intent = new Intent();   //intent實體化
                                     intent.setClass(service_trainNo.this,service.class);
                                     startActivity(intent);    //startActivity觸發換頁
+                                    service.service_code.clear();
                                     finish();
                                 }
                             }).show().setCanceledOnTouchOutside(false);
@@ -142,7 +143,7 @@ public class service_trainNo extends AppCompatActivity {
                     TrainType.set(i,"普悠瑪");
                 }else if(TrainType.get(i).equals("自強(太魯閣)")){
                     TrainType.set(i,"太魯閣");
-                }else if(TrainType.get(i).equals("")|| TrainType.get(i).equals("莒光(無身障座位)")){
+                }else if(TrainType.get(i).equals("")|| TrainType.get(i).equals("莒光(無身障座位)") || TrainType.get(i).equals("莒光(無身障座位 ,有自行車車廂)")){
                     TrainType.set(i,"莒光號");
                 }
 

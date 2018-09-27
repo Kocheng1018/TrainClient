@@ -116,8 +116,8 @@ public class service extends AppCompatActivity {
                     tosat.show();
                 }else {
                     SharedPreferences service_Tcheck = getSharedPreferences("service_Tcheck", MODE_PRIVATE);
-                    service_Tcheck.edit().putString("start_select",String.valueOf(start.getSelectedItemPosition())) .commit();
-                    service_Tcheck.edit().putString("end_select",String.valueOf(end.getSelectedItemPosition())) .commit();
+                    service_Tcheck.edit().putString("start_select",start.getSelectedItem().toString()) .commit();
+                    service_Tcheck.edit().putString("end_select",end.getSelectedItem().toString()).commit();
                     service_Tcheck.edit().putString("bk1",String.valueOf(block1.getSelectedItemPosition())) .commit();
                     service_Tcheck.edit().putString("bk2",String.valueOf(block2.getSelectedItemPosition())) .commit();
                     putData();
@@ -145,7 +145,14 @@ public class service extends AppCompatActivity {
                 int pos = block1.getSelectedItemPosition();
                 ArrayAdapter location =  change(pos);
                 start.setAdapter(location);
-                start.setSelection(Integer.valueOf(start_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(start_select)){
+                        start.setSelection(i);
+                        break;
+                    } else{
+                        start.setSelection(0);
+                    }
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -158,7 +165,14 @@ public class service extends AppCompatActivity {
                 int pos = block2.getSelectedItemPosition();
                 ArrayAdapter location =  change(pos);
                 end.setAdapter(location);
-                end.setSelection(Integer.valueOf(end_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(end_select)){
+                        end.setSelection(i);
+                        break;
+                    }else{
+                        end.setSelection(0);
+                    }
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
