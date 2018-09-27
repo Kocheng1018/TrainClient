@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.demo.fourbtn">
+
+
+    <Button
+        android:id="@+id/time"
+        android:layout_width="130dp"
+        android:layout_height="131dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/timebtn"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+    <Button
+        android:id="@+id/gpsbtn"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+
+        android:background="@drawable/gpsbtn"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/setbtn"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/setbtn"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <Button
+        android:id="@+id/sosbtn"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/sosbtn"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/recordbtn"
+        android:layout_width="131dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+
+        android:background="@drawable/recordbtn"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
+
+    .<Button
+        android:id="@+id/serverbtn"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+    
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+
+        android:background="@drawable/servicebtn"
+        android:drawablePadding="2dip"
+        android:gravity="center"
+        android:paddingLeft="30dip"
+        android:textColor="@color/colorWhite"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
+
+</android.support.constraint.ConstraintLayout>

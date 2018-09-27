@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1f41f9</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="TRAIN">#FF1CD7</color>
+    <color name="backg1">#9aff9a</color>
+    <color name="severbtn">#6BDAFF</color>
+    <color name="timebtn">#B19BFF</color>
+    <color name="sosbtn">#ff7a8f</color>
+    <color name="gpsbtn">#FFA574</color>
+
+    <color name="setbtn">#ffa809</color>
+
+</resources>
