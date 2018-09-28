@@ -17,11 +17,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -56,7 +54,6 @@ public class service extends AppCompatActivity {
         block1 = findViewById(R.id.block1);
         block2 = findViewById(R.id.block2);
         cancel = findViewById(R.id.cancel);
-
         final Calendar c = Calendar.getInstance();
 
         SimpleDateFormat simpleDateFormatDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -116,8 +113,8 @@ public class service extends AppCompatActivity {
                     tosat.show();
                 }else {
                     SharedPreferences service_Tcheck = getSharedPreferences("service_Tcheck", MODE_PRIVATE);
-                    service_Tcheck.edit().putString("start_select",String.valueOf(start.getSelectedItemPosition())) .commit();
-                    service_Tcheck.edit().putString("end_select",String.valueOf(end.getSelectedItemPosition())) .commit();
+                    service_Tcheck.edit().putString("start_select",start.getSelectedItem().toString()) .commit();
+                    service_Tcheck.edit().putString("end_select",end.getSelectedItem().toString()).commit();
                     service_Tcheck.edit().putString("bk1",String.valueOf(block1.getSelectedItemPosition())) .commit();
                     service_Tcheck.edit().putString("bk2",String.valueOf(block2.getSelectedItemPosition())) .commit();
                     putData();
@@ -139,26 +136,41 @@ public class service extends AppCompatActivity {
                 finish();
             }
         });
+        //車站設定(預設起站)
         block1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int pos = block1.getSelectedItemPosition();
+                int index = 0; //預設spinner位址
                 ArrayAdapter location =  change(pos);
                 start.setAdapter(location);
-                start.setSelection(Integer.valueOf(start_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(start_select)){
+                        index = i;
+                        break;
+                    }
+                }
+                start.setSelection(index);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
+        //車站設定(預設終站)
         block2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int pos = block2.getSelectedItemPosition();
+                int index = 0; //預設spinner位址
                 ArrayAdapter location =  change(pos);
                 end.setAdapter(location);
-                end.setSelection(Integer.valueOf(end_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(end_select)){
+                        index = i;
+                        break;
+                    }
+                }
+                end.setSelection(index);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -194,6 +206,7 @@ public class service extends AppCompatActivity {
         }
         return null;
     }
+    //丟資料到SP暫存
     public void putData(){
         SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
         service.edit()
@@ -227,12 +240,15 @@ public class service extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    //日期時間格式
     private String format(int x) {
         String s = "" + x;
         if (s.length() == 1)
             s = "0" + s;
         return s;
     }
+    @Override
+    //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             Intent intent = new Intent();   //intent實體化
