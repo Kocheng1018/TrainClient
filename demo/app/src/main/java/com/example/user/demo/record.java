@@ -3,19 +3,19 @@ package com.example.user.demo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -106,7 +106,6 @@ public class record extends AppCompatActivity {
                 finish();
             }
         });
-
     }
     //取得紀錄
     public void recordData(){
@@ -137,6 +136,8 @@ public class record extends AppCompatActivity {
                     shelp.add(record.getString("travelhelp"));
                     snotice.add(record.getString("notice"));
                     sseat.add(record.getString("seat"));
+                }else{
+                    continue;
                 }
             }
             for(int i = 0;i < sNo.size();i++){
@@ -194,6 +195,8 @@ public class record extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    @Override
+    //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             Intent intent = new Intent();   //intent實體化

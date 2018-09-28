@@ -48,10 +48,14 @@ public  class signup extends AppCompatActivity {
        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkCardId(id.getText().toString())){
-                    if(phone.getText().toString().matches("") || email.getText().toString().matches("") || name.getText().toString().matches("")){
+                if(checkCardId(id.getText().toString())) {
+                    if (phone.getText().toString().matches("") || email.getText().toString().matches("") || name.getText().toString().matches("")) {
                         Toast.makeText(signup.this, "請輸入姓名,身分證字號,電話及緊急聯絡人", Toast.LENGTH_SHORT).show();
-                 }else {
+                    }else if(phone.getText().length() != 10){
+                        Toast.makeText(getApplicationContext(), "手機格式錯誤!", Toast.LENGTH_SHORT).show();
+                    }else if(email.getText().length() != 10){
+                        Toast.makeText(getApplicationContext(), "緊急聯絡人電話格式錯誤!", Toast.LENGTH_SHORT).show();
+                    }else{
                         String sexV = id.getText().toString().substring(1,2);
                         if (sexV.equals(2)){
                             sex = "1";

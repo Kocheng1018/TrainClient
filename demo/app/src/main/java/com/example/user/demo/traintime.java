@@ -10,7 +10,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import org.json.JSONArray;
@@ -22,7 +21,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -31,13 +29,12 @@ public class traintime extends AppCompatActivity {
     Button change,R_serch,end;
     TextView tv,title;
     ArrayAdapter adapter;
-    public static String Tstart,Tend;
-    ImageView imageView = null;
+    String Tstart,Tend;
     List<String> TrainType = new ArrayList<>(); //車種
     List<String> TrainNo = new ArrayList<>();   //車次
     List<String> StartTime = new ArrayList<>(); //起始
     List<String> EndTime = new ArrayList<>();   //到達
-    List<String> WheelchairFlag = new ArrayList<>();
+    List<String> WheelchairFlag = new ArrayList<>(); //是否有殘障座位
     List<String> show = new ArrayList<>();      //顯示
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,22 +54,21 @@ public class traintime extends AppCompatActivity {
         tv.setText(Tstart + " 到 " +  Tend);
         tv.setTextSize(24);
         getTime();
+        //判定是否有資料
         if(TrainNo.size() == 0){
-            new AlertDialog.Builder(traintime.this)
-                    .setTitle("確認視窗")
-                    .setMessage("查無資料!")
-                    .setPositiveButton("確定",
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog,int which) {
-                                    Intent intent = new Intent();   //intent實體化
-                                    intent.setClass(traintime.this,time.class);
-                                    startActivity(intent);    //startActivity觸發換頁
-                                    finish();
-                                } 
-                            }).show().setCanceledOnTouchOutside(false);
+            new AlertDialog.Builder(traintime.this).setTitle("確認視窗").setMessage("查無資料!")
+                .setPositiveButton("確定",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,int which) {
+                            Intent intent = new Intent();   //intent實體化
+                            intent.setClass(traintime.this,time.class);
+                            startActivity(intent);    //startActivity觸發換頁
+                            time.code.clear();
+                            finish();
+                        }
+                    }).show().setCancelable(false);
         }
-
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,14 +98,16 @@ public class traintime extends AppCompatActivity {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                time.code.clear();
+                clear_list();
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(traintime.this,fourbtn.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-
     }
+    //取得臺鐵資料
     public void getTime() {
         MainActivity.DBConnector dbConnector = new MainActivity.DBConnector();
         try {
@@ -127,21 +125,24 @@ public class traintime extends AppCompatActivity {
                 JSONObject record = records.getJSONObject(i);
                 JSONObject type = record.getJSONObject("DailyTrainInfo");
                 JSONObject type2 = type.getJSONObject("TrainTypeName");
-                TrainType.add(type2.getString("Zh_tw"));
-                if(type.getString("WheelchairFlag").toString().equals("1")){
+                //是否有殘障座位
+                if(type.getString("WheelchairFlag").equals("1")){
                     WheelchairFlag.add("有");
                 }else {
                     WheelchairFlag.add("－");
                 }
-
+                //車種轉名
+                TrainType.add(type2.getString("Zh_tw"));
                 if(TrainType.get(i).equals("自強(推拉式自強號且無自行車車廂)") || TrainType.get(i).equals("自強")){
                     TrainType.set(i,"自強號");
                 }else if (TrainType.get(i).equals("自強(普悠瑪)")){
                     TrainType.set(i,"普悠瑪");
                 }else if(TrainType.get(i).equals("自強(太魯閣)")){
                     TrainType.set(i,"太魯閣");
-                }else if(TrainType.get(i).equals("")|| TrainType.get(i).equals("莒光(無身障座位)")){
+                }else if(TrainType.get(i).equals("") || TrainType.get(i).equals("莒光(無身障座位)") || TrainType.get(i).equals("莒光(無身障座位 ,有自行車車廂)")){
                     TrainType.set(i,"莒光號");
+                }else if(TrainType.get(i).equals("復興")){
+                    TrainType.set(i,"復興號");
                 }
 
                 JSONObject no = record.getJSONObject("DailyTrainInfo");
@@ -164,8 +165,10 @@ public class traintime extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    //秀資料
     public void list_show() throws ParseException {
         String temp;
+        //排序
         for(int i = 0;i < StartTime.size();i++) {
             for(int j = 0;j < StartTime.size();j++) {
                 if(StartTime.get(i).compareTo(StartTime.get(j)) < 0){
@@ -204,12 +207,42 @@ public class traintime extends AppCompatActivity {
             show.add(TrainType.get(i) + "    " + TrainNo.get(i) + "    " + StartTime.get(i) + "    " + EndTime.get(i) + "    " +
                     time_format(timeP) + "分" + "    " + WheelchairFlag.get(i));
         }
-
         adapter = new ArrayAdapter(traintime.this, android.R.layout.simple_list_item_1,show);
         list.setAdapter(adapter);
     }
-    //返回鍵
+    //清除所有資料
+    public void clear_list(){
+        TrainType.clear();
+        TrainNo.clear();
+        StartTime.clear();
+        EndTime.clear();
+        WheelchairFlag.clear();
+        show.clear();
+        adapter.notifyDataSetChanged();
+    }
+    //車次格式
+    public String format(String s) {
+        if(s.length() == 3){
+            s = s + "\t\t";
+        }else if(s.length() == 2){
+            s = s + "\t\t\t\t";
+        }else if(s.length() == 1){
+            s = s + "\t\t\t\t";
+        }
+        return s;
+    }
+    //show內的時間格式
+    public String time_format(long x) {
+        String s = "" + x;
+        if (s.length() == 1) {
+            s = "\t\t\t\t" + s;
+        }else if(s.length() == 2){
+            s = "\t\t" + s;
+        }
+        return s;
+    }
     @Override
+    //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             time.code.clear();
@@ -221,32 +254,4 @@ public class traintime extends AppCompatActivity {
         }
         return true;
     }
-    public void clear_list(){
-        TrainType.clear();
-        TrainNo.clear();
-        StartTime.clear();
-        EndTime.clear();
-        show.clear();
-        adapter.notifyDataSetChanged();
-    }
-    public String format(String s) {
-        if(s.length() == 3){
-            s = s + "\t\t";
-        }else if(s.length() == 2){
-            s = s + "\t\t\t\t";
-        }else if(s.length() == 1){
-            s = s + "\t\t\t\t";
-        }
-        return s;
-    }
-    public String time_format(long x) {
-        String s = "" + x;
-        if (s.length() == 1) {
-            s = "\t\t\t" + s;
-        }else if(s.length() == 2){
-            s = "\t\t" + s;
-        }
-        return s;
-    }
-
 }
