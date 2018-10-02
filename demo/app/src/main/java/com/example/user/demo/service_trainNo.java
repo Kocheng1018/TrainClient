@@ -30,13 +30,13 @@ public class service_trainNo extends AppCompatActivity {
     Button pre;
     TextView tv,title,tvshow;
     ArrayAdapter adapter;
-    public static String Tstart,Tend;
+    String Tstart,Tend;
     int check_index = -1;
     List<String> TrainType = new ArrayList<>(); //車種
     List<String> TrainNo = new ArrayList<>();   //車次
     List<String> StartTime = new ArrayList<>(); //起始
     List<String> EndTime = new ArrayList<>();   //到達
-    List<String> WheelchairFlag = new ArrayList<>();
+    List<String> WheelchairFlag = new ArrayList<>(); //是否有殘障座位
     List<String> show = new ArrayList<>();      //顯示
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +51,15 @@ public class service_trainNo extends AppCompatActivity {
         tvshow = findViewById(R.id.tvshow);
 
         title.setTextSize(18);
-
         Tstart = service.start.getSelectedItem().toString();
         Tend = service.end.getSelectedItem().toString();
         tv.setText(Tstart + " 到 " +  Tend);
         tv.setTextSize(24);
         tvshow.setTextSize(24);
         getTime();
+
         if(TrainNo.size() == 0){
-            new AlertDialog.Builder(service_trainNo.this)
-                    .setTitle("確認視窗")
+            new AlertDialog.Builder(service_trainNo.this).setTitle("確認視窗")
                     .setMessage("查無資料!")
                     .setPositiveButton("確定",
                             new DialogInterface.OnClickListener() {
@@ -69,9 +68,10 @@ public class service_trainNo extends AppCompatActivity {
                                     Intent intent = new Intent();   //intent實體化
                                     intent.setClass(service_trainNo.this,service.class);
                                     startActivity(intent);    //startActivity觸發換頁
+                                    service.service_code.clear();
                                     finish();
                                 }
-                            }).show().setCanceledOnTouchOutside(false);
+                            }).show().setCancelable(false);
         }
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -105,6 +105,8 @@ public class service_trainNo extends AppCompatActivity {
         pre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                service.service_code.clear();
+                clear_list();
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(service_trainNo.this,service.class);
                 startActivity(intent);    //startActivity觸發換頁
@@ -112,6 +114,7 @@ public class service_trainNo extends AppCompatActivity {
             }
         });
     }
+    //取得台鐵資料
     public void getTime() {
         MainActivity.DBConnector dbConnector = new MainActivity.DBConnector();
         try {
@@ -129,21 +132,24 @@ public class service_trainNo extends AppCompatActivity {
                 JSONObject record = records.getJSONObject(i);
                 JSONObject type = record.getJSONObject("DailyTrainInfo");
                 JSONObject type2 = type.getJSONObject("TrainTypeName");
-                TrainType.add(type2.getString("Zh_tw"));
-                if(type.getString("WheelchairFlag").toString().equals("1")){
+                //是否有殘障座位
+                if(type.getString("WheelchairFlag").equals("1")){
                     WheelchairFlag.add("有");
                 }else {
                     WheelchairFlag.add("－");
                 }
-
+                //車種轉名
+                TrainType.add(type2.getString("Zh_tw"));
                 if(TrainType.get(i).equals("自強(推拉式自強號且無自行車車廂)") || TrainType.get(i).equals("自強")){
                     TrainType.set(i,"自強號");
                 }else if (TrainType.get(i).equals("自強(普悠瑪)")){
                     TrainType.set(i,"普悠瑪");
                 }else if(TrainType.get(i).equals("自強(太魯閣)")){
                     TrainType.set(i,"太魯閣");
-                }else if(TrainType.get(i).equals("")|| TrainType.get(i).equals("莒光(無身障座位)")){
+                }else if(TrainType.get(i).equals("")|| TrainType.get(i).equals("莒光(無身障座位)") || TrainType.get(i).equals("莒光(無身障座位 ,有自行車車廂)")){
                     TrainType.set(i,"莒光號");
+                }else if(TrainType.get(i).equals("復興")){
+                    TrainType.set(i,"復興號");
                 }
 
                 JSONObject no = record.getJSONObject("DailyTrainInfo");
@@ -166,6 +172,7 @@ public class service_trainNo extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    //秀資料
     public void list_show() throws ParseException {
         String temp;
         for(int i = 0;i < StartTime.size();i++) {
@@ -209,29 +216,17 @@ public class service_trainNo extends AppCompatActivity {
         adapter = new ArrayAdapter(service_trainNo.this, android.R.layout.simple_list_item_1,show);
         list.setAdapter(adapter);
     }
-    //返回鍵
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
-            service.service_code.clear();
-            clear_list();
-            openmain();
-            finish();
-        }
-        return true;
-    }
-    public void openmain() {
-        Intent intent = new Intent(this,service.class);
-        startActivity(intent);
-    }
+    //清除資料
     public void clear_list(){
         TrainType.clear();
         TrainNo.clear();
         StartTime.clear();
         EndTime.clear();
+        WheelchairFlag.clear();
         show.clear();
         adapter.notifyDataSetChanged();
     }
+    //車次格式
     public String format(String s) {
         if(s.length() == 3){
             s = s + "\t\t";
@@ -242,6 +237,7 @@ public class service_trainNo extends AppCompatActivity {
         }
         return s;
     }
+    //show內的時間格式
     public String time_format(long x) {
         String s = "" + x;
         if (s.length() == 1) {
@@ -250,5 +246,18 @@ public class service_trainNo extends AppCompatActivity {
             s = "\t\t" + s;
         }
         return s;
+    }
+    @Override
+    //返回鍵
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
+            service.service_code.clear();
+            clear_list();
+            Intent intent = new Intent();   //intent實體化
+            intent.setClass(service_trainNo.this,service.class);
+            startActivity(intent);    //startActivity觸發換頁
+            finish();
+        }
+        return true;
     }
 }
