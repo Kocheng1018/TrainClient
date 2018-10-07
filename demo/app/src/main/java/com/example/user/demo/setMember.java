@@ -35,6 +35,7 @@ public class setMember extends AppCompatActivity {
         back = findViewById(R.id.back);
         send = findViewById(R.id.send);
         getOldData();
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,18 +48,15 @@ public class setMember extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendNewData();
+                if (phone.getText().length() != 10) {
+                    Toast.makeText(getApplicationContext(), "手機格式錯誤!", Toast.LENGTH_SHORT).show();
+                }else if(sosphone.getText().length() != 10){
+                    Toast.makeText(getApplicationContext(), "緊急聯絡人電話格式錯誤!", Toast.LENGTH_SHORT).show();
+                }else{
+                    sendNewData();
+                }
             }
         });
-    }
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
-            Intent intent = new Intent();   //intent實體化
-            intent.setClass(setMember.this,set.class);
-            startActivity(intent);    //startActivity觸發換頁
-            finish();
-        }
-        return true;
     }
     public void getOldData(){
         String account = getSharedPreferences("acc", MODE_PRIVATE)
@@ -158,5 +156,16 @@ public class setMember extends AppCompatActivity {
             }
         }
         return false;
+    }
+    @Override
+    //返回鍵
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
+            Intent intent = new Intent();   //intent實體化
+            intent.setClass(setMember.this,set.class);
+            startActivity(intent);    //startActivity觸發換頁
+            finish();
+        }
+        return true;
     }
 }
