@@ -46,7 +46,11 @@
         android:layout_height="41dp"
         android:background="#fefdca"
         android:paddingTop="8dp"
+<<<<<<< HEAD
         android:text="   車種      出發時間    行駛時間    抵達時間    "
+=======
+        android:text="    車種       車次       開車       抵達       備註"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold"

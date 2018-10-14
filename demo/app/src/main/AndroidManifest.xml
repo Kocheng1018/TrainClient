@@ -14,9 +14,16 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity
             android:name=".WelcomeActivity"
+=======
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name=".MainActivity"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +36,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+<<<<<<< HEAD
         <activity
             android:name=".signup"
             android:screenOrientation="portrait" />
@@ -79,6 +87,24 @@
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"></activity>
+=======
+        <activity android:name=".signup" android:screenOrientation="portrait"/>
+        <activity android:name=".service" android:screenOrientation="portrait"/>
+        <activity android:name=".fourbtn" android:screenOrientation="portrait"/>
+        <activity android:name=".time" android:screenOrientation="portrait"/>
+        <activity android:name=".gps" android:screenOrientation="portrait"/>
+        <activity android:name=".set" android:screenOrientation="portrait"/>
+        <activity android:name=".signup4" android:screenOrientation="portrait"/>
+        <activity android:name=".signupFinish" android:screenOrientation="portrait"/>
+        <activity android:name=".traintime" android:screenOrientation="portrait"/>
+        <activity android:name=".service1" android:screenOrientation="portrait"/>
+        <activity android:name=".servicefinish" android:screenOrientation="portrait"/>
+        <activity android:name=".record" android:screenOrientation="portrait"/>
+        <activity android:name=".setMember" android:screenOrientation="portrait"/>
+        <activity android:name=".setPwd" android:screenOrientation="portrait"/>
+        <activity android:name=".service_trainNo" android:screenOrientation="portrait"/>
+        <activity android:name=".record_big" android:screenOrientation="portrait"/>
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
     </application>
 
 </manifest>

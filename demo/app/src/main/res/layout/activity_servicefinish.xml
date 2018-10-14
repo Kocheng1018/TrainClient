@@ -65,15 +65,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="136dp"
+<<<<<<< HEAD
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
+=======
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="25dp"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         android:layout_marginTop="97dp"
         android:textAlignment="textStart"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.9"
+=======
+        app:layout_constraintHorizontal_bias="1.0"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -38,18 +38,36 @@
         app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<<<<<<< HEAD
+=======
+
+    <ListView
+        android:id="@+id/Tlist"
+        android:layout_width="0dp"
+        android:layout_height="359dp"
+        android:background="@color/active_indicator"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        android:listSelector="#F5DEB3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="#fefdca"
         android:paddingTop="8dp"
+<<<<<<< HEAD
         android:text="   車種      出發時間    行駛時間    抵達時間    "
+=======
+        android:text="    車種       車次       開車       抵達       備註"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -91,6 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Tlist" />
+<<<<<<< HEAD
 
     <ListView
         android:id="@+id/Tlist"
@@ -104,4 +123,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+=======
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
 </android.support.constraint.ConstraintLayout>

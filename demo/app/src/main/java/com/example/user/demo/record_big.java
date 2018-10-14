@@ -19,7 +19,11 @@ public class record_big extends AppCompatActivity {
         show_tv = findViewById(R.id.show_tv);
         end = findViewById(R.id.end);
 
+<<<<<<< HEAD
         show_tv.setTextSize(28);
+=======
+        show_tv.setTextSize(32);
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         show_tv.setText("日期 : " + record.sdate.get(record.check_index) + "\n"+
                 "時間 :" + record.stime.get(record.check_index) + "\n" +
                 "起始站 : " + record.sstart.get(record.check_index)+ "\n"+

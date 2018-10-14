@@ -33,7 +33,10 @@ public class record extends AppCompatActivity {
     Button btnback,delbtn,big;
     public static int check_index = -1;
     ArrayAdapter adapter;
+<<<<<<< HEAD
     NetworkInfo mNetworkInfo;
+=======
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
     public static List<String> sNo = new ArrayList<>();
     public static List<String> sdate = new ArrayList<>();
     public static List<String> stime = new ArrayList<>();
@@ -61,6 +64,7 @@ public class record extends AppCompatActivity {
         record_list = findViewById(R.id.record_list);
         title.setTextSize(20);
         clear_list();
+<<<<<<< HEAD
         mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
         if(mNetworkInfo != null) {
             recordData();
@@ -79,6 +83,9 @@ public class record extends AppCompatActivity {
                                 }
                             }).show().setCancelable(false);
         }
+=======
+        recordData();
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
 
         record_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -139,6 +146,7 @@ public class record extends AppCompatActivity {
                         show_tv.setText("未選取某筆紀錄!");
                     }
                 }else{
+<<<<<<< HEAD
                     new AlertDialog.Builder(record.this)
                             .setTitle("網路偵測")
                             .setMessage("請檢查網路連線!")
@@ -148,6 +156,10 @@ public class record extends AppCompatActivity {
                                         public void onClick(DialogInterface dialog,int which) {
                                         }
                             }).show();
+=======
+                    show_tv.setTextSize(20);
+                    show_tv.setText("未選取某筆紀錄!");
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
                 }
             }
         });
@@ -161,6 +173,13 @@ public class record extends AppCompatActivity {
                 finish();
             }
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
         big.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +194,14 @@ public class record extends AppCompatActivity {
                 }
             }
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
     }
     //取得紀錄
     public void recordData(){
@@ -207,6 +234,31 @@ public class record extends AppCompatActivity {
                     sseat.add(record.getString("seat"));
                 }else{
                     continue;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                }else{
+                    continue;
+=======
+<<<<<<< HEAD
+                }else{
+                    continue;
+=======
+                    showRecord.add("編號 : " + sNo.get(i) +"\t\t日期 : " + sdate.get(i) + "\t\t時間 : " + stime.get(i));
+>>>>>>> parent of 47724d3... 0927
+>>>>>>> 3f645120948bdddc29e76862782d527ea544ffdd
+>>>>>>> 04c8d53fb1718706ad6209713334f703a40109a1
+=======
+>>>>>>> parent of 04c8d53... Merge branch 'master' of https://github.com/Kocheng1018/TrainClient_0927final
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
                 }
             }
             for(int i = 0;i < sNo.size();i++){
@@ -264,6 +316,13 @@ public class record extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
     //清除所有資料
     public void clear_list(){
         record.sNo.clear();
@@ -281,6 +340,14 @@ public class record extends AppCompatActivity {
         record.sseat.clear();
         record.show.clear();
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
     @Override
     //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {

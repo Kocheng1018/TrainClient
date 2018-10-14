@@ -58,6 +58,7 @@ public class setMember extends AppCompatActivity {
                 }else if(sosphone.getText().length() != 10){
                     Toast.makeText(getApplicationContext(), "緊急聯絡人電話格式錯誤!", Toast.LENGTH_SHORT).show();
                 }else{
+<<<<<<< HEAD
                     mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                     if(mNetworkInfo != null) {
                         sendNewData();
@@ -72,6 +73,9 @@ public class setMember extends AppCompatActivity {
                                             }
                                         }).show();
                     }
+=======
+                    sendNewData();
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
                 }
             }
         });
