@@ -50,7 +50,14 @@ public class time extends AppCompatActivity {
         end = findViewById(R.id.pre);
         block1 = findViewById(R.id.block1);
         block2 = findViewById(R.id.block2);
+<<<<<<< HEAD
         block3 = findViewById(R.id.block3);
+=======
+<<<<<<< HEAD
+        block3 = findViewById(R.id.block3);
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
         final Calendar c = Calendar.getInstance();
 
         SimpleDateFormat simpleDateFormatDate = new SimpleDateFormat("yyyy-MM-dd");

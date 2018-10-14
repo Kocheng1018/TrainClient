@@ -3,6 +3,7 @@
   <component name="FacetManager">
     <facet type="android" name="Android">
       <configuration>
+<<<<<<< HEAD
         <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../TrainClient_1006/gen" />
         <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../TrainClient_1006/gen" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../TrainClient_1006/AndroidManifest.xml" />
@@ -10,6 +11,15 @@
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_1006/assets" />
         <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_1006/libs" />
         <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_1006/proguard_logs" />
+=======
+        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../TrainClient_0928_Demo/gen" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../TrainClient_0928_Demo/gen" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../TrainClient_0928_Demo/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../TrainClient_0928_Demo/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_0928_Demo/assets" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_0928_Demo/libs" />
+        <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/../../TrainClient_0928_Demo/proguard_logs" />
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
       </configuration>
     </facet>
   </component>

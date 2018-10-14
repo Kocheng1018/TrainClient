@@ -110,6 +110,10 @@ public class record extends AppCompatActivity {
                 finish();
             }
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
         big.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +128,11 @@ public class record extends AppCompatActivity {
                 }
             }
         });
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
     }
     //取得紀錄
     public void recordData(){
@@ -156,6 +165,28 @@ public class record extends AppCompatActivity {
                     sseat.add(record.getString("seat"));
                 }else{
                     continue;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                }else{
+                    continue;
+=======
+<<<<<<< HEAD
+                }else{
+                    continue;
+=======
+                    showRecord.add("編號 : " + sNo.get(i) +"\t\t日期 : " + sdate.get(i) + "\t\t時間 : " + stime.get(i));
+>>>>>>> parent of 47724d3... 0927
+>>>>>>> 3f645120948bdddc29e76862782d527ea544ffdd
+>>>>>>> 04c8d53fb1718706ad6209713334f703a40109a1
+=======
+>>>>>>> parent of 04c8d53... Merge branch 'master' of https://github.com/Kocheng1018/TrainClient_0927final
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
                 }
             }
             for(int i = 0;i < sNo.size();i++){
@@ -213,6 +244,10 @@ public class record extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
     //清除所有資料
     public void clear_list(){
         record.sNo.clear();
@@ -230,6 +265,11 @@ public class record extends AppCompatActivity {
         record.sseat.clear();
         record.show.clear();
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
     @Override
     //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
