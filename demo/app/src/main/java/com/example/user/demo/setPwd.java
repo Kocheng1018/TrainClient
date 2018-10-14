@@ -127,10 +127,10 @@ public class setPwd extends AppCompatActivity {
             JSONObject record = new JSONObject(result);
 
             if(record.getString("code").equals("1")){
-                Toast tosat = Toast.makeText(setPwd.this,"修改成功!",Toast.LENGTH_SHORT);
+                Toast tosat = Toast.makeText(setPwd.this,"修改成功，下次開啟時將重新登入!",Toast.LENGTH_SHORT);
                 tosat.show();
                 SharedPreferences acc = getSharedPreferences("acc", MODE_PRIVATE);
-                acc.edit().putString("password", edtxt2.getText().toString()) .commit();
+                acc.edit().clear().commit();
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(setPwd.this,fourbtn.class);
                 startActivity(intent);    //startActivity觸發換頁

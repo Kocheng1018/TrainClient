@@ -3,19 +3,19 @@ package com.example.user.demo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -25,22 +25,22 @@ import java.util.concurrent.ExecutionException;
 public class record extends AppCompatActivity {
     TextView title,show_tv;
     ListView record_list;
-    Button btnback,delbtn;
-    int check_index;
+    Button btnback,delbtn,big;
+    public static int check_index = -1;
     ArrayAdapter adapter;
-    List<String> sNo = new ArrayList<>();
-    List<String> sdate = new ArrayList<>();
-    List<String> stime = new ArrayList<>();
-    List<String> sstart = new ArrayList<>();
-    List<String> scode = new ArrayList<>();
-    List<String> send = new ArrayList<>();
-    List<String> swheel = new ArrayList<>();
-    List<String> scrutch = new ArrayList<>();
-    List<String> sboard = new ArrayList<>();
-    List<String> shelp = new ArrayList<>();
-    List<String> snotice = new ArrayList<>();
-    List<String> sseat = new ArrayList<>();
-    List<String> show = new ArrayList<>();
+    public static List<String> sNo = new ArrayList<>();
+    public static List<String> sdate = new ArrayList<>();
+    public static List<String> stime = new ArrayList<>();
+    public static List<String> sstart = new ArrayList<>();
+    public static List<String> scode = new ArrayList<>();
+    public static List<String> send = new ArrayList<>();
+    public static List<String> swheel = new ArrayList<>();
+    public static List<String> scrutch = new ArrayList<>();
+    public static List<String> sboard = new ArrayList<>();
+    public static List<String> shelp = new ArrayList<>();
+    public static List<String> snotice = new ArrayList<>();
+    public static List<String> sseat = new ArrayList<>();
+    public static List<String> show = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,10 @@ public class record extends AppCompatActivity {
         show_tv = findViewById(R.id.show_tv);
         btnback = findViewById(R.id.btnback);
         delbtn = findViewById(R.id.delbtn);
+        big = findViewById(R.id.big);
         record_list = findViewById(R.id.record_list);
         title.setTextSize(20);
+        clear_list();
         recordData();
 
         record_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -92,6 +94,7 @@ public class record extends AppCompatActivity {
                 if(check_index != -1){
                     Del();
                 }else{
+                    show_tv.setTextSize(20);
                     show_tv.setText("未選取某筆紀錄!");
                 }
                 check_index = -1;
@@ -100,13 +103,27 @@ public class record extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                check_index = -1;
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(record.this,fourbtn.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-
+        big.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(check_index != -1){
+                    Intent intent = new Intent();   //intent實體化
+                    intent.setClass(record.this,record_big.class);
+                    startActivity(intent);    //startActivity觸發換頁
+                    finish();
+                }else {
+                    show_tv.setTextSize(20);
+                    show_tv.setText("未選取某筆紀錄!");
+                }
+            }
+        });
     }
     //取得紀錄
     public void recordData(){
@@ -137,10 +154,12 @@ public class record extends AppCompatActivity {
                     shelp.add(record.getString("travelhelp"));
                     snotice.add(record.getString("notice"));
                     sseat.add(record.getString("seat"));
+                }else{
+                    continue;
                 }
             }
             for(int i = 0;i < sNo.size();i++){
-                show.add("編號 : " + sNo.get(i) + "\t\t\t\t日期 : " + sdate.get(i) + "\t\t\t\t時間 : " + stime.get(i));
+                show.add("\t\t\t\t日期 : " + sdate.get(i) + "\t\t\t\t時間 : " + stime.get(i));
             }
             adapter = new ArrayAdapter(record.this, android.R.layout.simple_list_item_1,show);
             record_list.setAdapter(adapter);
@@ -194,8 +213,28 @@ public class record extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    //清除所有資料
+    public void clear_list(){
+        record.sNo.clear();
+        record.sdate.clear();
+        record.stime.clear();
+        record.sstart.clear();
+        record.scode.clear();
+        record.sdate.clear();
+        record.send.clear();
+        record.swheel.clear();
+        record.scrutch.clear();
+        record.sboard.clear();
+        record.shelp.clear();
+        record.snotice.clear();
+        record.sseat.clear();
+        record.show.clear();
+    }
+    @Override
+    //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
+            check_index = -1;
             Intent intent = new Intent();   //intent實體化
             intent.setClass(record.this,fourbtn.class);
             startActivity(intent);    //startActivity觸發換頁

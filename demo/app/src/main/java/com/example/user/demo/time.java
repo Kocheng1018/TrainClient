@@ -2,11 +2,9 @@ package com.example.user.demo;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,11 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -33,12 +29,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class time extends AppCompatActivity {
-    TextView t1;
     Button b1,btn_send,timebtn,datebtn;
     public static TextView date,time;
     public static List<String> code = new ArrayList<>();
     int Year, Month, Day, hour, minute;
-    public static Spinner start, end, block1, block2;
+    public static Spinner start, end, block1, block2,block3;
     String start_select,end_select;
 
     @Override
@@ -55,7 +50,7 @@ public class time extends AppCompatActivity {
         end = findViewById(R.id.pre);
         block1 = findViewById(R.id.block1);
         block2 = findViewById(R.id.block2);
-
+        block3 = findViewById(R.id.block3);
         final Calendar c = Calendar.getInstance();
 
         SimpleDateFormat simpleDateFormatDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -75,6 +70,11 @@ public class time extends AppCompatActivity {
         block1.setSelection(Integer.valueOf(bk1_select));
         block2.setSelection(Integer.valueOf(bk2_select));
 
+        ArrayAdapter location = new ArrayAdapter(time.this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.traintype));
+        block3.setAdapter(location);
+
         datebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +85,7 @@ public class time extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         monthOfYear = monthOfYear+1;
-                        date.setText(year +"-"+monthOfYear+"-"+ dayOfMonth);
+                        date.setText(year +"-"+format(monthOfYear)+"-"+ format(dayOfMonth));
                     }
                 }, Year, Month, Day);
                 datePickerDialog.show();
@@ -115,13 +115,15 @@ public class time extends AppCompatActivity {
                     tosat.show();
                 }else {
                     SharedPreferences Ttime = getSharedPreferences("time", MODE_PRIVATE);
-                    Ttime.edit().putString("start_select",String.valueOf(start.getSelectedItemPosition())) .commit();
-                    Ttime.edit().putString("end_select",String.valueOf(end.getSelectedItemPosition())) .commit();
+                    Ttime.edit().putString("start_select",start.getSelectedItem().toString()) .commit();
+                    Ttime.edit().putString("end_select",end.getSelectedItem().toString()) .commit();
                     Ttime.edit().putString("bk1",String.valueOf(block1.getSelectedItemPosition())) .commit();
                     Ttime.edit().putString("bk2",String.valueOf(block2.getSelectedItemPosition())) .commit();
                     getTcode(start.getSelectedItem().toString());
                     getTcode(end.getSelectedItem().toString());
-                    openmain();
+                    Intent intent = new Intent();   //intent實體化
+                    intent.setClass(time.this,traintime.class);
+                    startActivity(intent);    //startActivity觸發換頁
                     finish();
                 }
             }
@@ -131,9 +133,16 @@ public class time extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int pos = block1.getSelectedItemPosition();
+                int index = 0; //預設spinner位址
                 ArrayAdapter location =  change(pos);
                 start.setAdapter(location);
-                start.setSelection(Integer.valueOf(start_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(start_select)){
+                        index = i;
+                        break;
+                    }
+                }
+                start.setSelection(index);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -144,15 +153,23 @@ public class time extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int pos = block2.getSelectedItemPosition();
+                int index = 0; //預設spinner位址
                 ArrayAdapter location =  change(pos);
                 end.setAdapter(location);
-                end.setSelection(Integer.valueOf(end_select));
+                for(int i = 0;i < location.getCount();i++){
+                    if(location.getItem(i).equals(end_select)){
+                        index = i;
+                        break;
+                    }
+                }
+                end.setSelection(index);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
+
+
     }
     //取得車站代碼
     public void getTcode(String Tname) {
@@ -204,18 +221,15 @@ public class time extends AppCompatActivity {
         }
         return null;
     }
+    //時間日期格式
     private String format(int x) {
         String s = "" + x;
         if (s.length() == 1)
             s = "0" + s;
         return s;
     }
-    public void openmain() {
-        Intent intent = new Intent(this,traintime.class);
-        startActivity(intent);
-    }
-    //返回鍵跳出退出訊息
     @Override
+    //返回鍵跳出退出訊息
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             Intent intent = new Intent();   //intent實體化
