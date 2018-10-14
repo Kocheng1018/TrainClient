@@ -1,7 +1,12 @@
 package com.example.user.demo;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -23,12 +28,12 @@ public class servicefinish extends AppCompatActivity {
     TextView detail,cancel;
     String wheel, crutch, board, travelhelp, notice, seat, date,
             trainNo,time, code, account, start, end;
-
+    NetworkInfo mNetworkInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicefinish);
-
+        final ConnectivityManager mConnectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         apply = findViewById(R.id.apply);
         detail = findViewById(R.id.detail);
         back = findViewById(R.id.back);
@@ -39,13 +44,27 @@ public class servicefinish extends AppCompatActivity {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                update();
-                SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
-                service.edit().clear().commit();
-                openmain();
-                finish();
+                mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                if(mNetworkInfo != null) {
+                    update();
+                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
+                    service.edit().clear().commit();
+                    openmain();
+                    finish();
+                }else{
+                    new AlertDialog.Builder(servicefinish.this)
+                            .setTitle("網路偵測")
+                            .setMessage("請檢查網路連線!")
+                            .setPositiveButton("確定",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog,int which) {
+                                        }
+                                    }).show();
+                }
             }
         });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

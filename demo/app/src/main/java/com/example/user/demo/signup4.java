@@ -1,9 +1,13 @@
 package com.example.user.demo;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -19,15 +23,14 @@ import java.net.URLEncoder;
 import java.util.concurrent.ExecutionException;
 
 public class signup4 extends AppCompatActivity {
-
     private EditText account, password;
     private Button previous, next, accCheck;
-
+    NetworkInfo mNetworkInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup4);
-
+        final ConnectivityManager mConnectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         account = findViewById(R.id.account);
         password = findViewById(R.id.password);
         previous = findViewById(R.id.previous);
@@ -40,28 +43,41 @@ public class signup4 extends AppCompatActivity {
         accCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    if (accountCheck() == 1){
-                        Toast tosat = Toast.makeText(signup4.this,"帳號可以使用!",Toast.LENGTH_SHORT);
-                        tosat.show();
-                    }else if (accountCheck() == 0){
-                        Toast tosat = Toast.makeText(signup4.this,"帳號長度為6~12!",Toast.LENGTH_SHORT);
-                        tosat.show();
-                    }else if (accountCheck() == 2){
-                        Toast tosat = Toast.makeText(signup4.this,"此帳號已有使用者!",Toast.LENGTH_SHORT);
-                        tosat.show();
-                    }else {
-                        Toast tosat = Toast.makeText(signup4.this,"ERROR!",Toast.LENGTH_SHORT);
-                        tosat.show();
+                mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                if (mNetworkInfo != null) {
+                    try {
+                        if (accountCheck() == 1) {
+                            Toast tosat = Toast.makeText(signup4.this, "帳號可以使用!", Toast.LENGTH_SHORT);
+                            tosat.show();
+                        } else if (accountCheck() == 0) {
+                            Toast tosat = Toast.makeText(signup4.this, "帳號長度為6~12!", Toast.LENGTH_SHORT);
+                            tosat.show();
+                        } else if (accountCheck() == 2) {
+                            Toast tosat = Toast.makeText(signup4.this, "此帳號已有使用者!", Toast.LENGTH_SHORT);
+                            tosat.show();
+                        } else {
+                            Toast tosat = Toast.makeText(signup4.this, "ERROR!", Toast.LENGTH_SHORT);
+                            tosat.show();
+                        }
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
+                }else{
+                    new AlertDialog.Builder(signup4.this)
+                            .setTitle("網路偵測")
+                            .setMessage("請檢查網路連線!")
+                            .setPositiveButton("確定",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog,int which) {
+                                        }
+                                    }).show();
                 }
             }
         });
@@ -74,35 +90,48 @@ public class signup4 extends AppCompatActivity {
                     tosat.show();
                 }else if(account.getText().length() < 6){
                     Toast.makeText(signup4.this, "帳號長度為6~12", Toast.LENGTH_SHORT).show();
-                }else{
-                    try {
-                        if(accountCheck()  == 1) {
-                            if (password.getText().toString().matches("")) {
-                                Toast.makeText(signup4.this, "請輸入密碼", Toast.LENGTH_SHORT).show();
-                            }else if(password.getText().length() < 6){
-                                Toast.makeText(signup4.this, "密碼長度為6~12", Toast.LENGTH_SHORT).show();
-                            }else{
-                                SharedPreferences member = getSharedPreferences("member", MODE_PRIVATE);
-                                member.edit()
-                                        .putString("account", account.getText().toString())
-                                        .putString("password", password.getText().toString())
-                                        .commit();
-                                openmain();
-                            }
-                        }else if(accountCheck() != 1){
-                            Toast.makeText(signup4.this,"此帳號無法使用!",Toast.LENGTH_SHORT).show();
+                }else {
+                    mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                    if (mNetworkInfo != null) {
+                        try {
+                            if (accountCheck() == 1) {
+                                if (password.getText().toString().matches("")) {
+                                    Toast.makeText(signup4.this, "請輸入密碼", Toast.LENGTH_SHORT).show();
+                                } else if (password.getText().length() < 6) {
+                                    Toast.makeText(signup4.this, "密碼長度為6~12", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    SharedPreferences member = getSharedPreferences("member", MODE_PRIVATE);
+                                    member.edit()
+                                            .putString("account", account.getText().toString())
+                                            .putString("password", password.getText().toString())
+                                            .commit();
+                                    openmain();
+                                }
+                            } else if (accountCheck() != 1) {
+                                Toast.makeText(signup4.this, "此帳號無法使用!", Toast.LENGTH_SHORT).show();
 
-                        }else{
-                            Toast.makeText(signup4.this, "ERROR!", Toast.LENGTH_SHORT);
+                            } else {
+                                Toast.makeText(signup4.this, "ERROR!", Toast.LENGTH_SHORT);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    } else{
+                        new AlertDialog.Builder(signup4.this)
+                                .setTitle("網路偵測")
+                                .setMessage("請檢查網路連線!")
+                                .setPositiveButton("確定",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog,int which) {
+                                            }
+                                        }).show();
                     }
                 }
             }

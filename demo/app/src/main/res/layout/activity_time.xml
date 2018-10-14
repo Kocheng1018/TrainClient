@@ -36,22 +36,6 @@
             app:layout_constraintVertical_bias="0.01999998" />
 
         <Button
-            android:id="@+id/carbtn"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/timechangebtn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.96"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.89" />
-
-        <Button
             android:id="@+id/timebtn"
             android:layout_width="65dp"
             android:layout_height="65dp"
@@ -236,6 +220,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.43" />
+
+        <Spinner
+            android:id="@+id/block3"
+            android:layout_width="131dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/checkedTextView_date"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/timespinner"
+            android:spinnerMode="dialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.857" />
 
         <Spinner
             android:id="@+id/pre"

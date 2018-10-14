@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".WelcomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,21 +29,56 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".signup" />
-        <activity android:name=".service" />
-        <activity android:name=".fourbtn" />
-        <activity android:name=".time" />
-        <activity android:name=".gps" />
-        <activity android:name=".set" />
-        <activity android:name=".signup4" />
-        <activity android:name=".signupFinish" />
-        <activity android:name=".traintime" />
-        <activity android:name=".service1" />
-        <activity android:name=".servicefinish" />
-        <activity android:name=".record" />
-        <activity android:name=".setMember" />
-        <activity android:name=".setPwd" />
-        <activity android:name=".service_trainNo"></activity>
+        <activity
+            android:name=".signup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".service"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fourbtn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".time"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".gps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".set"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".signup4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".signupFinish"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".traintime"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".service1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".servicefinish"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".record"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".setMember"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".setPwd"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".service_trainNo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".record_big"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -9,28 +9,25 @@
 
     <Button
         android:id="@+id/change"
-        android:layout_width="94dp"
+        android:layout_width="0dp"
         android:layout_height="67dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:background="@drawable/refresh"
         android:paddingTop="8dp"
         android:text="起迄互換"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/R_seach"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/R_seach"
+        app:layout_constraintTop_toTopOf="@+id/R_seach"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="171dp"
-        android:layout_height="67dp"
+        android:layout_width="0dp"
+        android:layout_height="68dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/timesearchboard"
         android:paddingRight="3dp"
@@ -38,27 +35,9 @@
         android:text="社頭到台中"
         android:textAlignment="center"
         android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ListView
-        android:id="@+id/Tlist"
-        android:layout_width="0dp"
-        android:layout_height="359dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/active_indicator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.604" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
@@ -70,8 +49,7 @@
         android:layout_marginTop="8dp"
         android:background="#fefdca"
         android:paddingTop="8dp"
-        android:text="車種    車次    開車    抵達   行駛時間   備註"
-        android:textAlignment="center"
+        android:text="   車種      出發時間    行駛時間    抵達時間    "
         android:textAllCaps="false"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -84,36 +62,46 @@
 
     <Button
         android:id="@+id/R_seach"
-        android:layout_width="94dp"
+        android:layout_width="0dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/refresh"
         android:paddingTop="8dp"
         android:text="重新整理"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tv"
         app:layout_constraintEnd_toStartOf="@+id/change"
         app:layout_constraintStart_toEndOf="@+id/tv"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/tv"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/pre"
-        android:layout_width="278dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/rounded_button"
         android:text="查詢完成"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.984" />
+        app:layout_constraintTop_toBottomOf="@+id/Tlist" />
+
+    <ListView
+        android:id="@+id/Tlist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="132dp"
+        android:background="@color/active_indicator"
+        android:listSelector="#F5DEB3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 </android.support.constraint.ConstraintLayout>

@@ -39,13 +39,13 @@ public class service1 extends AppCompatActivity {
         back = findViewById(R.id.back);
         cancel = findViewById(R.id.cancel);
 
-        SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
-        int wheel_check = Integer.valueOf(service.getString("wheel_check","0"));
-        int crutch_check = Integer.valueOf(service.getString("crutch_check","0"));
-        int board_check = Integer.valueOf(service.getString("board_check","0"));
-        int travelhelp_check = Integer.valueOf(service.getString("travelhelp_check","0"));
-        int notice_check = Integer.valueOf(service.getString("notice_check","0"));
-        int seat_check = Integer.valueOf(service.getString("seat_check","0"));
+        SharedPreferences service_check = getSharedPreferences("service_check", MODE_PRIVATE);
+        int wheel_check = Integer.valueOf(service_check.getString("wheel_check","0"));
+        int crutch_check = Integer.valueOf(service_check.getString("crutch_check","0"));
+        int board_check = Integer.valueOf(service_check.getString("board_check","0"));
+        int travelhelp_check = Integer.valueOf(service_check.getString("travelhelp_check","0"));
+        int notice_check = Integer.valueOf(service_check.getString("notice_check","0"));
+        int seat_check = Integer.valueOf(service_check.getString("seat_check","0"));
         if(wheel_check == 1) {
             choose(wheel);
         }
@@ -103,7 +103,9 @@ public class service1 extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backtomain();
+                Intent intent = new Intent();   //intent實體化
+                intent.setClass(service1.this,fourbtn.class);
+                startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
@@ -119,94 +121,78 @@ public class service1 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
+                SharedPreferences service_check = getSharedPreferences("service_check", MODE_PRIVATE);
                 if(wheel.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("wheel", "輪椅服務").commit();
-                    service.edit().putString("wheel_check", "1").commit();
+                    service_check.edit().putString("wheel_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("wheel", "").commit();
-                    service.edit().putString("wheel_check", "0").commit();
+                    service_check.edit().putString("wheel_check", "0").commit();
                 }
 
                 if(crutch.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("crutch", "拐杖服務").commit();
-                    service.edit().putString("crutch_check", "1").commit();
+                    service_check.edit().putString("crutch_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("crutch", "").commit();
-                    service.edit().putString("crutch_check", "0").commit();
+                    service_check.edit().putString("crutch_check", "0").commit();
                 }
 
                 if(board.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("board", "棧板服務").commit();
-                    service.edit().putString("board_check", "1").commit();
+                    service_check.edit().putString("board_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("board", "").commit();
-                    service.edit().putString("board_check", "0").commit();
+                    service_check.edit().putString("board_check", "0").commit();
                 }
 
                 if(travelhelp.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("travelhelp", "乘車幫助").commit();
-                    service.edit().putString("travelhelp_check", "1").commit();
+                    service_check.edit().putString("travelhelp_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("travelhelp", "").commit();
-                    service.edit().putString("travelhelp_check", "0").commit();
+                    service_check.edit().putString("travelhelp_check", "0").commit();
                 }
 
                 if(notice.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("notice", "下車提醒").commit();
-                    service.edit().putString("notice_check", "1").commit();
+                    service_check.edit().putString("notice_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("notice", "").commit();
-                    service.edit().putString("notice_check", "0").commit();
+                    service_check.edit().putString("notice_check", "0").commit();
                 }
 
                 if(seat.isChecked()) {
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("seat", "博愛座位").commit();
-                    service.edit().putString("seat_check", "1").commit();
+                    service_check.edit().putString("seat_check", "1").commit();
                 }else{
-                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                     service.edit().putString("seat", "").commit();
-                    service.edit().putString("seat_check", "0").commit();
+                    service_check.edit().putString("seat_check", "0").commit();
                 }
+
                 if(!(wheel.isChecked()) && !(crutch.isChecked()) && !(board.isChecked()) && !(travelhelp.isChecked()) && !(notice.isChecked()) && !(seat.isChecked())){
                     Toast tosat = Toast.makeText(service1.this,"未選取任何服務!",Toast.LENGTH_SHORT);
                     tosat.show();
                 }else {
-                    openmain();
+                    Intent intent = new Intent();   //intent實體化
+                    intent.setClass(service1.this,servicefinish.class);
+                    startActivity(intent);    //startActivity觸發換頁
                     finish();
                 }
             }
         });
     }
-
     //連接checkbox和switch
     private void choose(Switch sw){
         if(sw.isChecked()){
             sw.setChecked(false);
-        }
-        else {
+        } else {
             sw.setChecked(true);
         }
     }
-    //轉換頁面
-    public void openmain(){
-        Intent intent = new Intent(this,servicefinish.class);
-        startActivity(intent);
-    }
-    public void backtomain() {
-        Intent intent = new Intent(this,fourbtn.class);
-        startActivity(intent);
-    }
+    @Override
+    //返回鍵
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             Intent intent = new Intent();   //intent實體化

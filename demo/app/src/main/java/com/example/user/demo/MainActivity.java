@@ -2,12 +2,16 @@ package com.example.user.demo;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,10 +20,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
@@ -35,17 +37,21 @@ public class MainActivity extends AppCompatActivity{
     private Button signup;
     private EditText username,password; //帳號密碼
     private CheckBox remember;
-
+    NetworkInfo mNetworkInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ConnectivityManager mConnectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         sign = findViewById(R.id.sign);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         remember = findViewById(R.id.remember);
         signup = findViewById(R.id.create);
         username.requestFocus();
+
+        //檢查網路
+        mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
 
         SharedPreferences acc = getSharedPreferences("acc", MODE_PRIVATE);
         String account = acc.getString("account", "");
@@ -59,23 +65,47 @@ public class MainActivity extends AppCompatActivity{
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.CALL_PHONE}, 100);
         }
 
-
         if(account != "" && pwd != ""){
             username.setText(account);
             password.setText(pwd);
-            login();
+            if(mNetworkInfo != null){
+                login();
+            }else{
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("網路偵測")
+                        .setMessage("請檢查網路連線!")
+                        .setPositiveButton("確定",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,int which) {
+                                    }
+                                }).show();
+            }
         }
         sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences acc = getSharedPreferences("acc", MODE_PRIVATE);
-                acc.edit().putString("account", username.getText().toString()) .commit();
-                if(remember.isChecked()){
-                    acc.edit().putString("password", password.getText().toString()).commit();
-                }else {
-                    acc.edit().putString("password", "").commit();
+                mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                if(mNetworkInfo != null){
+                    SharedPreferences acc = getSharedPreferences("acc", MODE_PRIVATE);
+                    acc.edit().putString("account", username.getText().toString()) .commit();
+                    if(remember.isChecked()){
+                        acc.edit().putString("password", password.getText().toString()).commit();
+                    }else {
+                        acc.edit().putString("password", "").commit();
+                    }
+                    login();
+                }else{
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("網路偵測")
+                            .setMessage("請檢查網路連線!")
+                            .setPositiveButton("確定",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog,int which) {
+                                        }
+                                    }).show();
                 }
-                login();
             }
         });
 
