@@ -39,19 +39,23 @@ public  class signup extends AppCompatActivity {
         phone.setText(member.getString("phone",""));
         email.setText(member.getString("email",""));
 
-       haveac.setOnClickListener(new View.OnClickListener() {
+       haveac.setOnClickListener(new OnMultiClickListener() {
            @Override
-           public void onClick(View v) {
+           public void onMultiClick(View v) {
                openmainBack();
            }
        });
-       next.setOnClickListener(new View.OnClickListener() {
+       next.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
-                if(checkCardId(id.getText().toString())){
-                    if(phone.getText().toString().matches("") || email.getText().toString().matches("") || name.getText().toString().matches("")){
+            public void onMultiClick(View v) {
+                if(checkCardId(id.getText().toString())) {
+                    if (phone.getText().toString().matches("") || email.getText().toString().matches("") || name.getText().toString().matches("")) {
                         Toast.makeText(signup.this, "請輸入姓名,身分證字號,電話及緊急聯絡人", Toast.LENGTH_SHORT).show();
-                 }else {
+                    }else if(phone.getText().length() != 10){
+                        Toast.makeText(getApplicationContext(), "手機格式錯誤!", Toast.LENGTH_SHORT).show();
+                    }else if(email.getText().length() != 10){
+                        Toast.makeText(getApplicationContext(), "緊急聯絡人電話格式錯誤!", Toast.LENGTH_SHORT).show();
+                    }else{
                         String sexV = id.getText().toString().substring(1,2);
                         if (sexV.equals(2)){
                             sex = "1";
@@ -80,7 +84,6 @@ public  class signup extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
     //驗證身份證字號
     private boolean checkCardId(String id) {
         if (!id.matches("[A-Z][1-2][0-9]{8}")) {
@@ -120,7 +123,6 @@ public  class signup extends AppCompatActivity {
         }
         return true;
     }
-
     public void openmainBack() {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
@@ -169,6 +171,19 @@ public  class signup extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+    public abstract class OnMultiClickListener implements View.OnClickListener{
+        private static final int MIN_CLICK_DELAY_TIME = 1500;
+        private long lastClickTime;
+        public abstract void onMultiClick(View v);
+        @Override
+        public void onClick(View v) {
+            long curClickTime = System.currentTimeMillis();
+            if((curClickTime - lastClickTime) >= MIN_CLICK_DELAY_TIME) {
+                lastClickTime = curClickTime;
+                onMultiClick(v);
+            }
+        }
     }
 }
 

@@ -52,10 +52,10 @@
         android:background="@drawable/wheelchair"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintVertical_bias="0.254" />
 
     <ImageButton
         android:id="@+id/crutchpic"
@@ -68,10 +68,10 @@
         android:background="@drawable/crutch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintVertical_bias="0.252" />
 
     <Switch
         android:id="@+id/wheel"
@@ -83,11 +83,11 @@
         android:layout_marginTop="8dp"
         android:text="輪椅"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintEnd_toEndOf="@+id/wheelpic"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/wheelpic"
+        app:layout_constraintTop_toBottomOf="@+id/wheelpic"
+        app:layout_constraintVertical_bias="0.034" />
 
     <Switch
         android:id="@+id/crutch"
@@ -99,11 +99,11 @@
         android:layout_marginTop="8dp"
         android:text="拐杖"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintEnd_toEndOf="@+id/crutchpic"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/crutchpic"
+        app:layout_constraintTop_toBottomOf="@+id/crutchpic"
+        app:layout_constraintVertical_bias="0.031" />
 
     <ImageButton
         android:id="@+id/boardpic"
@@ -115,25 +115,23 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/boardpic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/noticepic"
+        app:layout_constraintStart_toEndOf="@+id/seatpic"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.568" />
 
     <Switch
         android:id="@+id/board"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="鍍板"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintEnd_toEndOf="@+id/boardpic"
+        app:layout_constraintStart_toStartOf="@+id/boardpic"
+        app:layout_constraintTop_toBottomOf="@+id/boardpic"
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <ImageButton
         android:id="@+id/travelhelppic"
@@ -145,27 +143,23 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/travelhelppic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/crutchpic"
+        app:layout_constraintStart_toEndOf="@+id/wheelpic"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintVertical_bias="0.252" />
 
     <Switch
         android:id="@+id/travelhelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="乘車幫助"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintEnd_toEndOf="@+id/travelhelppic"
+        app:layout_constraintStart_toStartOf="@+id/travelhelppic"
+        app:layout_constraintTop_toBottomOf="@+id/travelhelppic"
+        app:layout_constraintVertical_bias="0.031" />
 
     <ImageButton
         android:id="@+id/noticepic"
@@ -178,26 +172,25 @@
         android:background="@drawable/remind"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
+        app:layout_constraintVertical_bias="0.566" />
 
     <Switch
         android:id="@+id/notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="下車提醒"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintEnd_toEndOf="@+id/noticepic"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/noticepic"
+        app:layout_constraintTop_toBottomOf="@+id/noticepic"
+        app:layout_constraintVertical_bias="0.024" />
 
     <ImageButton
         android:id="@+id/seatpic"
@@ -207,29 +200,27 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/priority_seat"
+        android:background="@drawable/priority_seat_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
+        app:layout_constraintVertical_bias="0.569" />
 
     <Switch
         android:id="@+id/seat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="博愛座位"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintEnd_toEndOf="@+id/seatpic"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/seatpic"
+        app:layout_constraintTop_toBottomOf="@+id/seatpic"
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <Button
         android:id="@+id/next"
@@ -238,18 +229,16 @@
         android:layout_marginBottom="8dp"
 
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/servicenextbtn"
         android:text="下一步"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <Button
         android:id="@+id/back"
@@ -257,18 +246,16 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/servicenextbtn"
         android:text="上一步"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintEnd_toStartOf="@+id/next"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
+        app:layout_constraintVertical_bias="0.823" />
 
 </android.support.constraint.ConstraintLayout>

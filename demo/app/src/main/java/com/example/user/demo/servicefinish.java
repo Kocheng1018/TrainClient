@@ -1,12 +1,18 @@
 package com.example.user.demo;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,39 +29,62 @@ public class servicefinish extends AppCompatActivity {
     TextView detail,cancel;
     String wheel, crutch, board, travelhelp, notice, seat, date,
             trainNo,time, code, account, start, end;
+    NetworkInfo mNetworkInfo;
+    ImageView image[] = new ImageView[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicefinish);
-
+        final ConnectivityManager mConnectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         apply = findViewById(R.id.apply);
         detail = findViewById(R.id.detail);
         back = findViewById(R.id.back);
         cancel = findViewById(R.id.cancel);
 
+        image[0] = findViewById(R.id.image1);
+        image[1] = findViewById(R.id.image2);
+        image[2] = findViewById(R.id.image3);
+        image[3] = findViewById(R.id.image4);
+        image[4] = findViewById(R.id.image5);
+        image[5] = findViewById(R.id.image6);
+
         showdata();
 
-        apply.setOnClickListener(new View.OnClickListener() {
+        apply.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
-                update();
-                SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
-                service.edit().clear().commit();
-                openmain();
-                finish();
+            public void onMultiClick(View v) {
+                mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+                if(mNetworkInfo != null) {
+                    update();
+                    SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
+                    service.edit().clear().commit();
+                    openmain();
+                    finish();
+                }else{
+                    new AlertDialog.Builder(servicefinish.this)
+                            .setTitle("網路偵測")
+                            .setMessage("請檢查網路連線!")
+                            .setPositiveButton("確定",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog,int which) {
+                                        }
+                                    }).show();
+                }
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+
+        back.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 backmain();
                 finish();
             }
         });
-        cancel.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 backtomain();
                 SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                 service.edit().clear().commit();
@@ -89,19 +118,51 @@ public class servicefinish extends AppCompatActivity {
                 .getString("time", "");
         trainNo = getSharedPreferences("service", MODE_PRIVATE)
                 .getString("TrainNo", "");
-
-        detail.setText("您所選服務為:" + "\n");
+        String imgdata[] = {wheel,crutch,board,travelhelp,notice,seat};
+        /*detail.setText("您所選服務為:" + "\n");
         detail.append(wheel + " ");
         detail.append(crutch + " ");
         detail.append(board + " ");
         detail.append(travelhelp + " ");
         detail.append(notice + " ");
-        detail.append(seat + "\n");
+        detail.append(seat + "\n");*/
         detail.append("日期:" + date + "\n");
         detail.append("時間:" + time + "\n");
         detail.append("起站:" + start + "\n");
         detail.append("迄站:" + end + "\n");
         detail.append("搭乘車次:" + trainNo + "\n");
+
+        int count = 0;
+        for(int i = 0;i < image.length;i++){
+            if(imgdata[i].equals("輪椅服務")) {
+                image[count].setImageResource(R.drawable.wheelchair);
+                count++;
+                continue;
+            }else if(imgdata[i].equals("乘車幫助")){
+                image[count].setImageResource(R.drawable.travelhelppic);
+                count++;
+                continue;
+            }else if(imgdata[i].equals("拐杖服務")){
+                image[count].setImageResource(R.drawable.crutch);
+                count++;
+                continue;
+            }else if(imgdata[i].equals("博愛座位")){
+                image[count].setImageResource(R.drawable.priority_seat_4);
+                count++;
+                continue;
+            }else if(imgdata[i].equals("棧板服務")){
+                image[count].setImageResource(R.drawable.boardpic);
+                count++;
+                continue;
+            }else if(imgdata[i].equals("下車提醒")){
+                image[count].setImageResource(R.drawable.remind);
+                count++;
+                continue;
+            }
+        }
+        for(int i = count;i < image.length;i++){
+            image[i].setVisibility(View.INVISIBLE);
+        }
     }
     private void update(){
         wheel = change(wheel);
@@ -187,5 +248,18 @@ public class servicefinish extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+    public abstract class OnMultiClickListener implements View.OnClickListener{
+        private static final int MIN_CLICK_DELAY_TIME = 1500;
+        private long lastClickTime;
+        public abstract void onMultiClick(View v);
+        @Override
+        public void onClick(View v) {
+            long curClickTime = System.currentTimeMillis();
+            if((curClickTime - lastClickTime) >= MIN_CLICK_DELAY_TIME) {
+                lastClickTime = curClickTime;
+                onMultiClick(v);
+            }
+        }
     }
 }

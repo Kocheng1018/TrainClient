@@ -22,9 +22,9 @@ public class set extends AppCompatActivity {
         setmember = findViewById(R.id.setmember);
         setpwd = findViewById(R.id.setpwd);
         back = findViewById(R.id.back);
-        logout.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 new AlertDialog.Builder(set.this)
                         .setTitle("確認視窗")
                         .setMessage("確定要登出嗎?")
@@ -52,27 +52,27 @@ public class set extends AppCompatActivity {
                                 }).show();
             }
         });
-        setmember.setOnClickListener(new View.OnClickListener() {
+        setmember.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(set.this,setMember.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-        setpwd.setOnClickListener(new View.OnClickListener() {
+        setpwd.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(set.this,setPwd.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(set.this,fourbtn.class);
                 startActivity(intent);    //startActivity觸發換頁
@@ -92,5 +92,18 @@ public class set extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+    public abstract class OnMultiClickListener implements View.OnClickListener{
+        private static final int MIN_CLICK_DELAY_TIME = 1500;
+        private long lastClickTime;
+        public abstract void onMultiClick(View v);
+        @Override
+        public void onClick(View v) {
+            long curClickTime = System.currentTimeMillis();
+            if((curClickTime - lastClickTime) >= MIN_CLICK_DELAY_TIME) {
+                lastClickTime = curClickTime;
+                onMultiClick(v);
+            }
+        }
     }
 }

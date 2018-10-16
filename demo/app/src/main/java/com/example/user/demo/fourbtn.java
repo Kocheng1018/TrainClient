@@ -33,27 +33,27 @@ public class fourbtn extends AppCompatActivity {
         record = findViewById(R.id.recordbtn);
         getSosPhone();
 
-        service.setOnClickListener(new View.OnClickListener() {
+        service.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(fourbtn.this,service.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-        time.setOnClickListener(new View.OnClickListener() {
+        time.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(fourbtn.this,time.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-        sos.setOnClickListener(new View.OnClickListener() {
+        sos.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 new AlertDialog.Builder(fourbtn.this)
                         .setTitle("緊急聯絡人")
                         .setItems(test,new DialogInterface.OnClickListener() {
@@ -77,26 +77,26 @@ public class fourbtn extends AppCompatActivity {
                         }).show();
             }
         });
-        gps.setOnClickListener(new View.OnClickListener() {
+        gps.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(fourbtn.this,gps.class);
                 startActivity(intent);    //startActivity觸發換頁
             }
         });
-        set.setOnClickListener(new View.OnClickListener() {
+        set.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(fourbtn.this,set.class);
                 startActivity(intent);    //startActivity觸發換頁
                 finish();
             }
         });
-        record.setOnClickListener(new View.OnClickListener() {
+        record.setOnClickListener(new OnMultiClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(fourbtn.this,record.class);
                 startActivity(intent);    //startActivity觸發換頁
@@ -104,7 +104,6 @@ public class fourbtn extends AppCompatActivity {
             }
         });
     }
-
     //返回鍵跳出退出訊息
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -150,6 +149,20 @@ public class fourbtn extends AppCompatActivity {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+    //防止重複按
+    public abstract class OnMultiClickListener implements View.OnClickListener{
+        private static final int MIN_CLICK_DELAY_TIME = 1500;
+        private long lastClickTime;
+        public abstract void onMultiClick(View v);
+        @Override
+        public void onClick(View v) {
+            long curClickTime = System.currentTimeMillis();
+            if((curClickTime - lastClickTime) >= MIN_CLICK_DELAY_TIME) {
+                lastClickTime = curClickTime;
+                onMultiClick(v);
+            }
         }
     }
 }

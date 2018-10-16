@@ -1,13 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac92b267-6e87-4e90-9d83-78d9670d98f2" name="Default" comment="" />
+    <list default="true" id="ac92b267-6e87-4e90-9d83-78d9670d98f2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/demo/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/demo/.idea/misc.xml" afterPath="$PROJECT_DIR$/demo/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/build.gradle" afterPath="$PROJECT_DIR$/demo/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/ic_launcher-web.png" afterPath="$PROJECT_DIR$/demo/app/src/main/ic_launcher-web.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/MainActivity.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/gps.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/gps.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/record.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/record.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service1.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service1.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service_trainNo.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/service_trainNo.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/servicefinish.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/servicefinish.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/setMember.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/setMember.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/setPwd.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/setPwd.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signup.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signup.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signup4.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signup4.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signupFinish.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/signupFinish.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/time.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/time.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/traintime.java" afterPath="$PROJECT_DIR$/demo/app/src/main/java/com/example/user/demo/traintime.java" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable-v24/buttonview.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable-v24/gpsbtn.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable-v24/helpme.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable-v24/pencil.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable-v24/tv.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/boardpic.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/boardpic.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/crutch.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/crutch.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/gpsbtn.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/gpsbtn.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/priority_seat.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/remind.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/remind.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/service.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/travelhelppic.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/travelhelppic.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/drawable/wheelchair.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/drawable/wheelchair.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_fourbtn2.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_fourbtn2.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_record.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_record.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service1.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service1.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service_train_no.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_service_train_no.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_servicefinish.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_servicefinish.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_set.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_set.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_set_member.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_set_member.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup2.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup2.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup4.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup4.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup_finish.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_signup_finish.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_time.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_time.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_traintime.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/layout/activity_traintime.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/demo/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/demo/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/demo/build.gradle" afterPath="$PROJECT_DIR$/demo/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/demo/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/demo/gradle/wrapper/gradle-wrapper.properties" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -35,11 +105,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -162,20 +232,20 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
