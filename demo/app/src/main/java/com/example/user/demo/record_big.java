@@ -19,7 +19,15 @@ public class record_big extends AppCompatActivity {
         show_tv = findViewById(R.id.show_tv);
         end = findViewById(R.id.end);
 
+<<<<<<< HEAD
         show_tv.setTextSize(28);
+=======
+<<<<<<< HEAD
+        show_tv.setTextSize(28);
+=======
+        show_tv.setTextSize(32);
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
         show_tv.setText("日期 : " + record.sdate.get(record.check_index) + "\n"+
                 "時間 :" + record.stime.get(record.check_index) + "\n" +
                 "起始站 : " + record.sstart.get(record.check_index)+ "\n"+
@@ -45,9 +53,15 @@ public class record_big extends AppCompatActivity {
             show_tv.append("\t\t\t\t博愛座位置\n");
         }
 
+<<<<<<< HEAD
         end.setOnClickListener(new OnMultiClickListener() {
             @Override
             public void onMultiClick(View v) {
+=======
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 record.check_index = -1;
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(record_big.this,record.class);
@@ -69,6 +83,7 @@ public class record_big extends AppCompatActivity {
         }
         return true;
     }
+<<<<<<< HEAD
     public abstract class OnMultiClickListener implements View.OnClickListener{
         private static final int MIN_CLICK_DELAY_TIME = 1500;
         private long lastClickTime;
@@ -82,4 +97,6 @@ public class record_big extends AppCompatActivity {
             }
         }
     }
+=======
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 }

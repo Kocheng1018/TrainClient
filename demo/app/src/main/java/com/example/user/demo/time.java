@@ -2,14 +2,19 @@ package com.example.user.demo;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 import android.content.Context;
 import android.content.DialogInterface;
+=======
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -56,7 +61,22 @@ public class time extends AppCompatActivity {
         end = findViewById(R.id.pre);
         block1 = findViewById(R.id.block1);
         block2 = findViewById(R.id.block2);
+<<<<<<< HEAD
         block3 = findViewById(R.id.block3);
+=======
+<<<<<<< HEAD
+        block3 = findViewById(R.id.block3);
+=======
+<<<<<<< HEAD
+        block3 = findViewById(R.id.block3);
+=======
+<<<<<<< HEAD
+        block3 = findViewById(R.id.block3);
+=======
+>>>>>>> 5bcd8ad8f284ea750d625050d1764690ab682295
+>>>>>>> 4cdab4f4036df92c6de82c46e4d0a8271c5860d4
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
         final Calendar c = Calendar.getInstance();
 
         SimpleDateFormat simpleDateFormatDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -115,7 +135,11 @@ public class time extends AppCompatActivity {
 
         btn_send.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if(start.getSelectedItem().toString().equals(end.getSelectedItem().toString())){
                     Toast tosat = Toast.makeText(time.this,"起迄站不可一樣!",Toast.LENGTH_SHORT);
@@ -126,6 +150,10 @@ public class time extends AppCompatActivity {
                     Ttime.edit().putString("end_select",end.getSelectedItem().toString()) .commit();
                     Ttime.edit().putString("bk1",String.valueOf(block1.getSelectedItemPosition())) .commit();
                     Ttime.edit().putString("bk2",String.valueOf(block2.getSelectedItemPosition())) .commit();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                     if(mNetworkInfo != null){
                         getTcode(start.getSelectedItem().toString());
                         getTcode(end.getSelectedItem().toString());
@@ -144,6 +172,17 @@ public class time extends AppCompatActivity {
                                             }
                                         }).show();
                     }
+<<<<<<< HEAD
+=======
+=======
+                    getTcode(start.getSelectedItem().toString());
+                    getTcode(end.getSelectedItem().toString());
+                    Intent intent = new Intent();   //intent實體化
+                    intent.setClass(time.this,traintime.class);
+                    startActivity(intent);    //startActivity觸發換頁
+                    finish();
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 }
             }
         });
@@ -187,6 +226,8 @@ public class time extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
     }
     //取得車站代碼
     public void getTcode(String Tname) {

@@ -48,7 +48,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/varela_round"
+<<<<<<< HEAD
         android:text="串連我們的愛"
+=======
+        android:text="串聯我們的愛"
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"

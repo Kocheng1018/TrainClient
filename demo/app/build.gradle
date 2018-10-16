@@ -99,7 +99,16 @@ dependencies {
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69

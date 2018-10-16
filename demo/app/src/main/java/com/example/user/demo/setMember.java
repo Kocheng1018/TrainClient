@@ -41,7 +41,11 @@ public class setMember extends AppCompatActivity {
         send = findViewById(R.id.send);
         getOldData();
 
+<<<<<<< HEAD
         back.setOnClickListener(new OnMultiClickListener() {
+=======
+        back.setOnClickListener(new View.OnClickListener() {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
             @Override
             public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
@@ -52,12 +56,20 @@ public class setMember extends AppCompatActivity {
         });
         send.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 if (phone.getText().length() != 10) {
                     Toast.makeText(getApplicationContext(), "手機格式錯誤!", Toast.LENGTH_SHORT).show();
                 }else if(sosphone.getText().length() != 10){
                     Toast.makeText(getApplicationContext(), "緊急聯絡人電話格式錯誤!", Toast.LENGTH_SHORT).show();
                 }else{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                     mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                     if(mNetworkInfo != null) {
                         sendNewData();
@@ -72,6 +84,12 @@ public class setMember extends AppCompatActivity {
                                             }
                                         }).show();
                     }
+<<<<<<< HEAD
+=======
+=======
+                    sendNewData();
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 }
             }
         });
@@ -186,6 +204,7 @@ public class setMember extends AppCompatActivity {
         }
         return true;
     }
+<<<<<<< HEAD
     public abstract class OnMultiClickListener implements View.OnClickListener{
         private static final int MIN_CLICK_DELAY_TIME = 1500;
         private long lastClickTime;
@@ -199,4 +218,6 @@ public class setMember extends AppCompatActivity {
             }
         }
     }
+=======
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 }

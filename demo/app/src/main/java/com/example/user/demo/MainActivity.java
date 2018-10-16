@@ -82,7 +82,11 @@ public class MainActivity extends AppCompatActivity{
         }
         sign.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View view) {
+=======
+            public void onClick(View view) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if(mNetworkInfo != null){
                     SharedPreferences acc = getSharedPreferences("acc", MODE_PRIVATE);

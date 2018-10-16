@@ -30,8 +30,11 @@ public class servicefinish extends AppCompatActivity {
     String wheel, crutch, board, travelhelp, notice, seat, date,
             trainNo,time, code, account, start, end;
     NetworkInfo mNetworkInfo;
+<<<<<<< HEAD
     ImageView image[] = new ImageView[6];
 
+=======
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,11 @@ public class servicefinish extends AppCompatActivity {
 
         apply.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if(mNetworkInfo != null) {
                     update();
@@ -75,7 +82,11 @@ public class servicefinish extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
         back.setOnClickListener(new OnMultiClickListener() {
+=======
+        back.setOnClickListener(new View.OnClickListener() {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
             @Override
             public void onMultiClick(View v) {
                 backmain();

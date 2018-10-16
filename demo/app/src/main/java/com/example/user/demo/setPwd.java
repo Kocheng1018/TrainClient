@@ -53,7 +53,11 @@ public class setPwd extends AppCompatActivity {
         title2.setTextSize(16);
         title3.setTextSize(16);
 
+<<<<<<< HEAD
         btn_back.setOnClickListener(new OnMultiClickListener() {
+=======
+        btn_back.setOnClickListener(new View.OnClickListener() {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
             @Override
             public void onMultiClick(View v) {
                 Intent intent = new Intent();   //intent實體化
@@ -64,7 +68,11 @@ public class setPwd extends AppCompatActivity {
         });
         btn_upd.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if(mNetworkInfo != null) {
                     getOldPwd();

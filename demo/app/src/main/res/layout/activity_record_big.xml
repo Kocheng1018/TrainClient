@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
     android:background="@drawable/textshow"
     tools:context=".record_big">
 
     <Button
         android:id="@+id/end"
+<<<<<<< HEAD
         android:layout_width="98dp"
         android:layout_height="98dp"
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -18,10 +27,17 @@
         android:background="@drawable/recordokbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.982" />
+=======
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.985" />
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 
     <TextView
         android:id="@+id/show_tv"
@@ -32,11 +48,49 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="108dp"
         android:text="TextView"
+<<<<<<< HEAD
+=======
+=======
+    tools:context=".record_big">
+
+    <TextView
+        android:id="@+id/show_tv"
+        android:layout_width="310dp"
+        android:layout_height="498dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.363" />
+
+    <Button
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="完成"
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0ac59c70c02d079402a385fbbe55d0f8390001a9
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
 </android.support.constraint.ConstraintLayout>

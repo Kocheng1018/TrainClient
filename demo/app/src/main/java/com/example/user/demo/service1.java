@@ -102,7 +102,11 @@ public class service1 extends AppCompatActivity {
 
         cancel.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 Intent intent = new Intent();   //intent實體化
                 intent.setClass(service1.this,fourbtn.class);
                 startActivity(intent);    //startActivity觸發換頁
@@ -120,7 +124,11 @@ public class service1 extends AppCompatActivity {
         });
         next.setOnClickListener(new OnMultiClickListener(){
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v){
+=======
+            public void onClick(View v){
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 SharedPreferences service = getSharedPreferences("service", MODE_PRIVATE);
                 SharedPreferences service_check = getSharedPreferences("service_check", MODE_PRIVATE);
                 if(wheel.isChecked()) {

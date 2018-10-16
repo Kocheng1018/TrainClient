@@ -113,7 +113,11 @@ public class service extends AppCompatActivity {
 
         next.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if(start.getSelectedItem().toString().equals(end.getSelectedItem().toString())) {
                     Toast tosat = Toast.makeText(service.this,"起迄站不可一樣!",Toast.LENGTH_SHORT);

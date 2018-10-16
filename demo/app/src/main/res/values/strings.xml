@@ -1,5 +1,9 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">串連我們的愛</string>
+=======
+    <string name="app_name">串聯我們的愛</string>
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
     <string name="title_activity_signup2">signup2</string>
     <string name="title_activity_train_time">train_time</string>
 </resources>

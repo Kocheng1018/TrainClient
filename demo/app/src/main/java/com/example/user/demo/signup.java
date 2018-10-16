@@ -47,7 +47,11 @@ public  class signup extends AppCompatActivity {
        });
        next.setOnClickListener(new OnMultiClickListener() {
             @Override
+<<<<<<< HEAD
             public void onMultiClick(View v) {
+=======
+            public void onClick(View v) {
+>>>>>>> 0ac44b83437ff6ea1801d5caaf1bebf4ddc9cd69
                 if(checkCardId(id.getText().toString())) {
                     if (phone.getText().toString().matches("") || email.getText().toString().matches("") || name.getText().toString().matches("")) {
                         Toast.makeText(signup.this, "請輸入姓名,身分證字號,電話及緊急聯絡人", Toast.LENGTH_SHORT).show();
